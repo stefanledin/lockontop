@@ -22,7 +22,6 @@
 
 	lockOnTop.prototype.insertStandIn = function() {
 		var height = _this.$el.height();
-		if (this.options.) {};
 		_this.$standIn = $('<div/>').css('height', _this.$el.height());
 		_this.$standIn.insertAfter(_this.$el);
 	};
@@ -39,6 +38,7 @@
 			previousFixedValue = false;
 
 		$(window).on('scroll', function () {
+			previousFixedValue = fixed;
 			fixed = (_this.$document.scrollTop() >= originalPosition) ? true : false;
 			if (fixed !== previousFixedValue) {
 				if (fixed) {
@@ -51,7 +51,6 @@
 					_this.$el.css('position', 'static').removeClass('js-locked-on-top');
 					_this.removeStandIn();
 				}
-				previousFixedValue = fixed;
 			}
 		});
 	};
