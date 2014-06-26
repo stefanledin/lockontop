@@ -18,35 +18,16 @@
 	<body>
 
 		<div style="height: 500px; width: 100%; background: #bada55;"></div>
-		<div class="js-lockontop" style="width: 100%; height: 50px; background: #333;"></div>
+		<div class="js-lockontop" style="width: 500px; height: 50px; background: #333;"></div>
+		<div style="height: 500px; width: 100%; background: #bada55;"></div>
 		
-		<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="lockontop.jquery.js"></script>
 		<script>
-			;(function (window, document, $, undefined) {
-				$.fn.lockOnTop = function () {
-					return this.each(function () {
-
-						var $el = $(this);
-						var originalPosition = $(this).offset().top,
-							$document = $(document),
-							fixed = false,
-							cachedFixedValue;
-
-						$(window).on('scroll', function () {
-							cachedFixedValue = fixed;
-							fixed = ($document.scrollTop() >= originalPosition) ? true : false;
-							if (cachedFixedValue !== fixed) {
-								$el.toggleClass('fixed');
-							}
-						});
-						
-					});
-				};
-			})(window, document, jQuery);
-
 			$(document).ready(function () {
 				$('.js-lockontop').lockOnTop();
 			});
 		</script>
+
 	</body>
 </html>
